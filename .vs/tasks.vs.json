@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-env_file",
+      "appliesTo": "env_file",
+      "type": "launch"
+    }
+  ]
+}
