@@ -9,18 +9,18 @@ Parameters:
   EksClusterName:
     Type: String
     Description: The name of the EKS cluster created
-    Default: 
+    Default: simple-jwt-api
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: You must enter the EKS cluster name
+    ConstraintDescription: simple-jwt-api
 
   GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: 
+    Default: deploy
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub repository name
+    ConstraintDescription: deploy
 
   GitBranch:
     Type: String
@@ -28,7 +28,7 @@ Parameters:
     Description: GitHub git repository branch - change triggers a new build
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub repository branch name
+    ConstraintDescription: master
 
   GitHubToken:
     Type: String
@@ -36,15 +36,15 @@ Parameters:
     Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub personal access token
+    ConstraintDescription: 39af7de0252b7d84c3d8fa197f60299abf1dd390
 
   GitHubUser:
     Type: String
-    Default:
+    Default: emanamr
     Description: GitHub username or organization
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub username or organization
+    ConstraintDescription: emanamr
 
   CodeBuildDockerImage:
     Type: String
@@ -52,15 +52,15 @@ Parameters:
     Description: Default AWS CodeBuild Docker optimized image
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a CodeBuild Docker image
+    ConstraintDescription: aws/codebuild/docker:17.09.0 
 
   KubectlRoleName:
     Type: String
-    Default: 
+    Default: UdacityFlaskDeployCBKubectlRole
     Description: IAM role used by kubectl to interact with EKS cluster
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a kubectl IAM role
+    ConstraintDescription: UdacityFlaskDeployCBKubectlRole
 
 
 Metadata:
@@ -80,7 +80,7 @@ Metadata:
       - Label:
           default: IAM
         Parameters:
-          - KubectlRoleName
+          - kubectl IAM role
       - Label:
           default: EKS
         Parameters:
