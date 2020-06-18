@@ -17,7 +17,7 @@ Parameters:
   GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: deploy
+    Default: deploy_eks
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository name
@@ -52,7 +52,7 @@ Parameters:
     Description: Default AWS CodeBuild Docker optimized image
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a CodeBuild Docker image 
+    ConstraintDescription: You must enter a CodeBuild Docker image
 
   KubectlRoleName:
     Type: String
@@ -80,7 +80,7 @@ Metadata:
       - Label:
           default: IAM
         Parameters:
-          - kubectl IAM role
+          - KubectlRoleName
       - Label:
           default: EKS
         Parameters:
